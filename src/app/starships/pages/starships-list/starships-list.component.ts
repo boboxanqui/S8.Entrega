@@ -37,7 +37,6 @@ export class StarshipsListComponent implements OnInit {
         this.starshipPage = resp;
         this.starshipArr.push( ...resp.results );
         this.dataService.addStarship(resp.results);
-        console.log(this.starshipArr);
       }   
     })
   }

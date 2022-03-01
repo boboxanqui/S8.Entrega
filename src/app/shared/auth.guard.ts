@@ -18,12 +18,9 @@ export class AuthGuard implements CanActivate, CanLoad {
         return true;
       }
     console.log('Bloqueado por AutGuard - CanActivate');
-    
-    
-    //FIXME: change to 'false' to block any not registered user
-    
-    // this.sharedService.setshowLogIn(true);
-    return true;
+        
+    this.sharedService.setshowLogIn(true);
+    return false;
   }
 
   canLoad(

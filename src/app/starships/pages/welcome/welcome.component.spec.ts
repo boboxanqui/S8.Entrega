@@ -1,4 +1,6 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpService } from '../../services/http.service';
 
 import { WelcomeComponent } from './welcome.component';
 
@@ -26,9 +28,10 @@ import { WelcomeComponent } from './welcome.component';
 
 describe('Content Cards', () => {
 
-
   it('Component loading', () => {
-    
+    const component = new WelcomeComponent( );
+    expect(component).toBeDefined();
+    expect(component).toBeInstanceOf(WelcomeComponent);
   })
 
 })

@@ -8,9 +8,7 @@ import { HttpService } from '../../services/http.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(
-    private httpService: HttpService
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
  

@@ -1,33 +1,29 @@
 import { NgModule } from '@angular/core';
 
+import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DialogModule} from 'primeng/dialog';
 import {DividerModule} from 'primeng/divider';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {FieldsetModule} from 'primeng/fieldset';
 import {InputTextModule} from 'primeng/inputtext';
-import {DialogModule} from 'primeng/dialog';
-import {ButtonModule} from 'primeng/button';
-import {CheckboxModule} from 'primeng/checkbox';
 import {ProgressBarModule} from 'primeng/progressbar';
-import {PasswordModule} from 'primeng/password';
-import {ToastModule} from 'primeng/toast';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
 
 @NgModule({
   exports: [
+    ButtonModule,
     CardModule,
+    CheckboxModule,
+    DialogModule,
     DividerModule,
-    ProgressSpinnerModule,
     FieldsetModule,
     InputTextModule,
-    DialogModule,
-    ButtonModule,
-    CheckboxModule,
     ProgressBarModule,
-    PasswordModule,
-    ToastModule
+    ProgressSpinnerModule,
   ]
 })
 export class PrimeNgModule { }

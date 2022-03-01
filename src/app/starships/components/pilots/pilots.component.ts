@@ -27,9 +27,7 @@ export class PilotsComponent implements OnInit {
           this.pilots.push(pilot)
         } )
       })
-    })
-    console.log(this.pilots);
-    
+    })    
   }
 
   starship!: Starship;

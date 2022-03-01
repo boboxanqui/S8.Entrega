@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class SharedService {
 
-  constructor() { }
+  constructor( private router: Router ) { }
 
   private _showSignUp = new Subject<boolean>()
   private _showLogIn = new Subject<boolean>()
@@ -40,5 +41,6 @@ export class SharedService {
 
   logout(){
     this._userLogged = undefined;
+    this.router.navigate(['/welcome']);
   }
 }
