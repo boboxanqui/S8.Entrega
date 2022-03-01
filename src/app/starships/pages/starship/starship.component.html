@@ -1,0 +1,126 @@
+<div *ngIf="!starship; else mostarStarship">
+
+    <div class="mx-auto mt-8 text-center">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    
+</div>
+
+<ng-template #mostarStarship>
+
+    <div class="flex flex-column md:flex-row m-5 bg-secondary border-round card">
+        <img [src]="starshipImg" 
+            (error)="showError()" 
+            alt="Imagen de la nave {{ starship.name }}"
+            *ngIf="showImg; else showGif"
+            class="col-12 md:col-8 p-0 select-none">
+
+        <ng-template #showGif>
+            <div class="col-12 md:col-8 flex flex-column">
+                <div class="my-3 text-center ">
+                    <i class="fa-regular fa-face-sad-tear text-4xl mb-2"></i>
+                    <p>Sorry, we don't have any picture of {{ starship.name }}, but you can enjoy this gif instead </p>
+                </div>
+                <img [src]="randomGif" alt="Random starwars gif" id="randomGif">
+            </div>
+        </ng-template>
+        <div class="col-12 md:col-4 text-center sm:text-left">
+            <h1 class="text-center my-3"> {{ starship.name | titlecase }} </h1>
+            <div class="flex flex-column sm:flex-row md:flex-column my-3 font-mono">
+                <div class="my-2 col-12 sm:col-4 md:col-12">
+                    <p class="my-1">
+                        <i class="fa-solid fa-ruler-combined mx-2"></i>
+                        Model
+                    </p>
+                    <p class="text-pink-700 ml-5"> {{ starship.model }} </p>
+                </div>
+
+                <div class="my-2 col-12 sm:col-4 md:col-12">
+                    <p class="my-1">
+                        <i class="fa-solid fa-industry mx-2"></i>
+                        Manufacturer
+                    </p>
+                    <p class="text-pink-700 ml-5"> {{ starship.manufacturer  }} </p>
+                </div>
+
+                <div class="my-2 col-12 sm:col-4 md:col-12">
+                    <p class="my-1">
+                        <i class="fa-solid fa-coins mx-2"></i>
+                        Cost
+                    </p>
+                    <p class="text-pink-700 ml-5"
+                    *ngIf="starship.cost_in_credits !== 'unknown'; else unknown"> 
+                        {{ starship.cost_in_credits | number  }} Credits
+                    </p>
+                    <ng-template #unknown >
+                        <p class="text-pink-700 ml-5">Unknown price</p>
+                    </ng-template>        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <p-divider align="center" type="dashed" [style]="{'z-index': '0'}">
+        <i class="fa-solid fa-wrench mr-2"></i>
+        <b class="font-mono z-0">Specs</b>
+    </p-divider>
+
+    <div class="mx-6 text-center sm:text-left">
+        <div class="flex flex-column sm:flex-row font-mono flex-wrap">
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Class</p>
+                <p class="text-pink-700"> {{ starship.starship_class | titlecase }} </p>
+            </div>
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Length</p>
+                <p class="text-pink-700"> {{ starship.length  }} meters </p>
+            </div>
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Consumables</p>
+                <p class="text-pink-700"> {{ starship.consumables }} </p>
+            </div>
+    
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Capacity</p>
+                <p class="text-pink-700" *ngIf="starship.cargo_capacity != 'unknown'; else unkownCapacity"> 
+                    {{ starship.cargo_capacity | number }} kilograms 
+                </p>
+                <ng-template #unkownCapacity > 
+                    <span class="text-pink-700"> Unknown capacity </span>
+                </ng-template>
+            </div>
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Crew</p>
+                <p class="text-pink-700"> {{ starship.crew }} </p>
+            </div>
+    
+            <div class="my-2 col-12 sm:col-6 md:col-4">
+                <p class="my-1">Passengers</p>
+                <p class="text-pink-700"> {{ starship.passengers }}   </p>
+            </div>
+    
+        </div>
+    </div>
+
+    <p-divider align="center" type="dashed" [style]="{'z-index': '0'}">
+        <i class="fa-solid fa-code-merge mr-2"></i>
+        <b class="font-mono">Related</b>
+    </p-divider>
+
+    <app-pilots></app-pilots>
+
+   <p-fieldset>
+        <ng-template pTemplate="header">
+            <i class="fa-solid fa-film"></i>           
+            Films
+        </ng-template>
+        Content
+    </p-fieldset>
+    
+</ng-template>

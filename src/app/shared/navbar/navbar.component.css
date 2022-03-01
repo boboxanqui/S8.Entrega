@@ -1,0 +1,30 @@
+#logo{
+    width: 200px;
+    height: auto;
+}
+
+.menuItem {
+    cursor: pointer;
+    font-weight: 300;
+    width: 150px;
+    text-align: center;
+}
+
+.btn {
+    font-weight: 300;
+    width: 250px; 
+    text-align: center;
+}
+
+
+.menuItem:hover,
+.btn:hover {
+    font-weight: bold;
+    color: var(--surface-text);
+}
+
+.menuItem-active{
+    background-color: var(--surface-a);
+    font-weight: bold;
+    color: var(--surface-text);
+}

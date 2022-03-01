@@ -1,0 +1,65 @@
+<h1 class="text-center m-5">All about the Star Wars starships</h1>
+<h3 class="text-center text-secondary my-3 mx-8">
+    Complete list of all the ships that appear in Star Wars. Click on any ship to see more details
+</h3>
+
+<div *ngIf="starshipArr.length === 0; else mostarStarshipArr" class="border-none">
+    
+    <div class="mx-auto mt-8 text-center border-none">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    
+</div>
+
+<ng-template #mostarStarshipArr>
+
+    <div *ngFor="let starship of starshipArr"
+        infinite-scroll
+        [infiniteScrollThrottle]="3"
+        [infiniteScrollDistance]="-30"
+        (scrolled)="nextPage()"
+        [routerLink]="['/starship', starship.name]"
+        class="card bg-secondary border-none border-round cursor-pointer py-4 font-mono">
+
+
+        <h2 class="text-center mb-3">
+            {{ starship.name }}
+        </h2>
+
+        <div class="flex flex-column md:flex-row border-none m-1">
+
+            <span class="md:col-4 p-2">
+                <i class="fa-solid fa-ruler-combined mx-2"></i>
+                {{ starship.model }} 
+            </span>
+            <hr class="block md:hidden lineHr">
+            <span class="md:border-x-1 border-400 p-2 md:col-4">
+                <i class="fa-solid fa-industry mx-2"></i>
+                {{ starship.manufacturer }}
+            </span>
+            <hr class="block md:hidden lineHr">
+            <span *ngIf="starship.cost_in_credits !== 'unknown'; else unknown"
+                class="md:col-4 p-2">
+                <i class="fa-solid fa-coins mx-2"></i>
+                {{ starship.cost_in_credits | number }}
+            </span> 
+            <ng-template #unknown >
+                <span class="md:col-4 p-2">Unknown price</span>
+            </ng-template>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="starshipArr.length < 36" class="border-none">
+    
+        <div class="mx-auto mt-8 text-center border-none">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+        
+    </div>
+  
+</ng-template>
+
+<!-- <button (click)="nextPage()" *ngIf="starshipArr.length < 36">Next Page</button> -->
+

@@ -1,0 +1,34 @@
+
+    <p-fieldset  [style]="{'margin':'10px'}">
+        <ng-template pTemplate="header">
+            <i class="fa-solid fa-user-astronaut"></i>
+            Pilots
+        </ng-template>
+
+        <div class="flex justify-content-center sm:justify-content-between lg:justify-content-start align-items-stretch flex-wrap" 
+            *ngIf="pilots.length > 0; else noPilots">
+
+            <div *ngFor="let pilot of pilots" class="col-6 sm:col-5 md:col-3 lg:col-2 mx-2 border-round">
+
+                <p-card [header]="pilot.name" 
+                    [subheader]="pilot.gender" 
+                    [style]="{height: 'max-content',
+                        'max-width': '200px',
+                        'background-color': 'var(--surface-b)',
+                        'box-shadow':'0px 10px 10px #414141'}" >
+                    <ng-template pTemplate="header">
+                        <img alt="Card" 
+                            [src]=" pilotImg(pilot) " 
+                            class="border-round">
+                    </ng-template>
+                </p-card>
+
+            </div>
+
+        </div>
+
+        <ng-template #noPilots>
+            <h3 class="text-center text-pink-700 mb-4">No pilots found for this ship</h3>
+        </ng-template>
+        
+    </p-fieldset>

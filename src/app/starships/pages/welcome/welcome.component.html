@@ -1,0 +1,167 @@
+<h1 class="text-center my-5">Welcome to the Star Wars databank</h1>
+
+<h2 class="text-center text-secondary my-3 mx-3 md:mx-8">
+    On this place you will find a lot of information about your favourite saga. Every data has been verified with
+    official sources.
+</h2>
+<h2 class="text-center text-secondary my-3 mx-3 md:mx-8">
+    Every data has been verified with official sources.
+</h2>
+<h2 class="text-center text-secondary my-3 mx-3 md:mx-8">
+    Take a look at everything you can find here
+</h2>
+
+<!-- VERTICAL CARDS -->
+
+<div class="grid justify-content-around flex-wrap max-w-full">
+
+    <div class="col-10 md:col-5 lg:col-3">
+        <div class=" cardV bg-secondary border-round my-5 p-0 cursor-pointer"
+            [routerLink]="['/starships']">
+             <h2 class="text-center py-3"> 
+                    <i class="fa-solid fa-jedi mx-2"></i>
+                    <span class="text-orange-600">Starships</span> 
+                    <i class="fa-solid fa-jedi mx-2"></i>
+                </h2>
+            <div id="starshipImg" class="cardImgV p-0 border-bottom-3 border-orange-600 select-none" alt="Death Star Ship"></div>
+            <div class="p-3">
+                <div class="flex flex-column justify-content-around">
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Known everything about all all the ships that appear in Star Wars</p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Compare data like price, capacity, length and more. </p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Check all his pilots and films where appears</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-10 md:col-5 lg:col-3">
+        <div class="cardV bg-secondary border-round my-5  p-0  cursor-pointer">
+             <h2 class="text-center py-3"> 
+                <i class="fa-regular fa-address-card mx-2"></i>
+                <span class="text-green-600">Characters</span> 
+                <i class="fa-regular fa-address-card mx-2"></i>
+            </h2>
+            <div id="characterImg" class="cardImgV p-0 border-bottom-3 border-green-600 select-none" alt="Chewaka"></div>
+            <div class="p-3">
+                <div class="flex flex-column justify-content-around">
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quos?</p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est a sed ut! </p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-10 md:col-5 lg:col-3 ">
+        <div class="cardV bg-secondary border-round my-5 p-0  cursor-pointer">
+             <h2 class="text-center py-3"> 
+                    <i class="fa-solid fa-film mx-2"></i>
+                    <span class="text-cyan-600">Films</span> 
+                    <i class="fa-solid fa-film mx-2"></i>
+                </h2>
+            <div id="filmsImg" class="cardImgV p-0 border-bottom-3 border-cyan-600 select-none" alt="Episode III: Revenge of the Sith"></div>
+            <div class="p-3">
+                <div class="flex flex-column justify-content-around">
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, explicabo.</p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, at cum?</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="col-10 md:col-5 lg:col-3 ">
+        <div class="cardV bg-secondary border-round my-5 p-0  cursor-pointer">
+             <h2 class="text-center py-3"> 
+                    <i class="fa-solid fa-earth-americas mx-2"></i>
+                    <span class="text-pink-600">Planets</span> 
+                    <i class="fa-solid fa-earth-americas mx-2"></i>
+                </h2>
+            <div id="planetsImg" class="cardImgV p-0 border-bottom-3 border-pink-600 select-none" alt="Naboo planet"></div>
+                <div class="p-3 flex flex-column align-items-stretch">
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia praesentium ex laboriosam?</p>
+                    <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+        </div>
+    </div>
+
+    
+
+</div>
+
+    <!-- HORIZONTAL CARDS -->
+<div class="cards mx-6 my-6">
+
+
+    <div class="card bg-secondary border-round grid my-5 cursor-pointer"
+        [routerLink]="['/starships']">
+        <img [src]="starshipImg" alt="Death Star Ship" class="cardImg hidden md:inline col-4 p-0 border-right-3 border-orange-600">
+        <div class="col p-3">
+            <h2 class="text-center mb-3"> 
+                <i class="fa-solid fa-jedi mx-3"></i>
+                Starships
+                <i class="fa-solid fa-jedi mx-3"></i>
+            </h2>
+            <div class="flex flex-column justify-content-around">
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Known everything about all all the ships that appear in Star Wars</p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Compare data like price, capacity, length and more. </p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Check all his pilots and films where appears</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-secondary border-round grid my-5 cursor-pointer">
+        <div class="col p-3">
+            <h2 class="text-center mb-3"> 
+                <i class="fa-regular fa-address-card mx-3"></i>
+                Characters
+                <i class="fa-regular fa-address-card mx-3"></i>
+            </h2>
+            <div class="flex flex-column justify-content-around">
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quos?</p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur consectetur neque dolor ratione, cupiditate explicabo! </p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+        <img [src]="characterImg" alt="Chewaka" class="cardImg hidden md:inline col-4 p-0 border-left-3 border-blue-600">
+    </div>
+
+    <div class="card bg-secondary border-round grid my-5 cursor-pointer">
+        <img [src]="filmImg" alt="Episode III: Revenge of the Sith" class="cardImg hidden md:inline col-4 p-0 border-right-3 border-green-600">
+        <div class="col p-3">
+            <h2 class="text-center mb-3"> 
+                <i class="fa-solid fa-film mx-3"></i>
+                Films
+                <i class="fa-solid fa-film mx-3"></i>
+            </h2>
+            <div class="flex flex-column justify-content-around">
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, aperiam!</p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, consequuntur!</p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur a perferendis labore, vero dolores officiis?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-secondary border-round grid my-5 cursor-pointer">
+        <div class="col p-3">
+            <h2 class="text-center mb-3"> 
+                <i class="fa-solid fa-earth-americas mx-3"></i>
+                Planets
+                <i class="fa-solid fa-earth-americas mx-3"></i>
+            </h2>
+            <div class="flex flex-column justify-content-around">
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quos?</p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur consectetur neque dolor ratione, cupiditate explicabo! </p>
+                <p class="my-2"><i class="fa-solid fa-check mx-3"></i>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+        <img [src]="planetImg" alt="Chewaka" class="cardImg hidden md:inline col-4 p-0 border-left-3 border-purple-700">
+    </div>
+
+
+</div>
+

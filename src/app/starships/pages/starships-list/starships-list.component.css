@@ -1,0 +1,16 @@
+div{
+    border: 1px solid #000;
+    margin: 50px;
+    text-align: center;
+}
+
+.lineHr {
+    width: 80px;
+    margin: 0 auto;
+    opacity: 0.5;
+}
+
+.card:hover {
+    box-shadow: 0px 15px 30px -10px var(--text-color-secondary);
+    transform: translateY(-10px);
+}

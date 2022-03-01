@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: var(--surface-a);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.text-secondary{
+    color: var(--text-color-secondary);
+}
+
+.bg-secondary{
+    background-color: var(--surface-b) ;
+}
+
+.bg-body {
+    background-color: var(--surface-a);
+}
+
+.font-mono{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.font-mono-light{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+}
+
+.font-mono-bold {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+
+/* LogIn and SignUp Modals */
+
+#logoModal{
+    width: 150px;
+    margin: 0px auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.errorText {
+    color: #f44434
+}
+
+/* Route Animations */
+
+main {
+    position: relative;
+}

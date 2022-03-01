@@ -1,0 +1,52 @@
+<h2 class="text-yellow-500 text-center my-3">SIGN IN</h2>
+
+<form [formGroup]="logInForm" (submit)="onSubmit()">
+
+    <!-- Username or Email Address  -->
+    <span class="p-float-label mt-3">
+        <input id="user w-full"
+            name="user"
+            type="text" 
+            pInputText 
+            class="w-full"
+            formControlName="user"
+            [class.ng-dirty]="inputValidator('user')"> 
+        <label for="firstname">Username or Email Address</label>
+    </span>
+    <small class="errorText" *ngIf="inputValidator('user')"> {{ errorTextUser() }} </small>
+
+    <!-- Password  -->
+    <span class="p-float-label mt-3">
+        <input id="password" 
+            type="password" 
+            pInputText 
+            class="w-full"
+            formControlName="password"
+            [class.ng-dirty]="inputValidator('password')"> 
+        <label for="password">Password</label>
+    </span>
+    <small class="errorText" *ngIf="inputValidator('password')">{{ errorTextPassword() }}</small>
+
+    <button pButton type="Sign In" label="Sign in" class="w-full text-center mt-3"></button>
+
+    <p class="mt-3 mb-5 text-center"> 
+        <small>
+            Not registered yet?
+            <a class="text-yellow-500 cursor-pointer" (click)="openSignUp()" > Create Account</a>
+        </small>
+    </p>
+
+    <!-- <dl>
+        <dt class="mt-2">Form Valid</dt>
+        <dd><pre>{{ logInForm.valid }}</pre></dd>
+
+        <dt class="mt-2">Username</dt>
+        <dd><pre>{{ logInForm.controls['user'].valid }}</pre></dd>
+        <dd><pre>{{ logInForm.controls['user'].errors | json }}</pre></dd>
+
+        <dt class="mt-2">Password</dt>
+        <dd><pre>{{ logInForm.controls['password'].valid }}</pre></dd>
+        <dd><pre>{{ logInForm.controls['password'].errors | json }}</pre></dd>
+    </dl> -->
+    
+</form>

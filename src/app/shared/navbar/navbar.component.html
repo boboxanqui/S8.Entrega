@@ -1,0 +1,81 @@
+<div class="flex my-5">
+    <div class="flex-1 flex align-items-center justify-content-center">
+        <img src="../assets/logo.png" alt="Logo" id="logo" class="mx-10">
+    </div>
+    <div class="absolute top-0 right-0 py-5 mx-3 font-mono select-none">
+
+       <!-- User Logged -->
+        <div class="px-2" *ngIf="userLogged; else newUser">
+            <p class="flex justify-content-around"><i class="fa-solid fa-user mr-3"></i> {{ userLogged }}</p>
+            <p class="mt-2 text-right"><span class="btn text-secondary cursor-pointer"
+                (click)="logOut()">
+                LOG OUT
+            </span></p> 
+        </div>
+
+        <!-- Log in & Sign up -->
+        <ng-template #newUser>
+            <span class="btn px-2 text-secondary cursor-pointer "
+            (click)="showLogIn()">
+            LOG IN
+        </span>
+        <span class="text-200 mx-2"> / / </span>
+        <span class="btn px-2 text-secondary cursor-pointer "
+            (click)="showSignup()">
+            SIGN UP
+        </span> 
+        </ng-template>
+
+    </div>
+</div>
+
+<div class="border-y-1 border-500 flex justify-content-center font-mono-light">
+
+    <span class="border-x-1 border-500 p-3 menuItem text-secondary select-none" 
+        [routerLink]="['/welcome']" 
+        routerLinkActive="menuItem-active" >
+        <i class="fa-solid fa-igloo"></i>
+        WELCOME
+    </span>
+    <span class="border-x-1 border-500 p-3 menuItem text-secondary select-none"
+        [routerLink]="['/starships']"
+        routerLinkActive="menuItem-active">
+        <i class="fa-solid fa-jedi"></i>
+        STARSHIPS
+    </span>
+    
+</div>
+
+<!-- Sign up Modal -->
+
+<p-dialog 
+    [(visible)]="displaySignup"
+    [modal]="true"
+    [closeOnEscape]="true"
+    [dismissableMask]="true"
+    [breakpoints]="{'1200px':'50vw', '960px': '75vw', '640px': '100vw'}" 
+    [style]="{width: '40vw'}">
+
+    <ng-template pTemplate="header">
+        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">    
+    </ng-template>
+    
+    <app-signup></app-signup>
+</p-dialog>
+
+<!-- Log In Modal -->
+
+<p-dialog 
+    [(visible)]="displayLogIn"
+    [modal]="true"
+    [closeOnEscape]="true"
+    [dismissableMask]="true"
+    [breakpoints]="{'1200px':'50vw', '960px': '75vw', '640px': '100vw'}" 
+    [style]="{width: '40vw'}">
+
+    <ng-template pTemplate="header">
+        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">    
+    </ng-template>
+    
+    <app-login></app-login>
+</p-dialog>
