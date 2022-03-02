@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Observable, switchMap, tap } from 'rxjs';
+import { catchError, Observable, switchMap, tap } from 'rxjs';
 
 import { Giphy, Pilot, Starship, StarshipPage } from '../interfaces/interfaces';
 
@@ -20,6 +20,13 @@ export class HttpService {
 
   getStarshipsList(): Observable<StarshipPage> {
     const url = `${this.swapiUrl}starships`
+    return this.http.get<StarshipPage>(url).pipe(
+      catchError( err => this.getStarshipsList_url2() )
+    )
+  }
+
+  getStarshipsList_url2(): Observable<StarshipPage> {
+    const url = `${this.swapiPy4eUrl}starships`
     return this.http.get<StarshipPage>(url)
   }
 

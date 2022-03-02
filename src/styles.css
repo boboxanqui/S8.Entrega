@@ -63,3 +63,9 @@ a:hover{
 main {
     position: relative;
 }
+
+/* Footer */
+
+footer {
+    position: inherit;
+}

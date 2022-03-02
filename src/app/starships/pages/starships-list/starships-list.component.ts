@@ -21,9 +21,17 @@ export class StarshipsListComponent implements OnInit {
       setTimeout( () => {
         this.starshipPage = resp;
         this.starshipArr = resp.results;
-        this.dataService.addStarship(resp.results)
+        this.dataService.addStarship(resp.results);
       }, 500)
-    })
+    }
+    // error => {
+    //   this.httpService.getStarshipsList_url2().subscribe( resp => {
+    //     this.starshipPage = resp;
+    //     this.starshipArr = resp.results;
+    //     this.dataService.addStarship(resp.results);
+    //   })
+    // }
+    )
   }
 
   starshipArr: Starship[] = [];

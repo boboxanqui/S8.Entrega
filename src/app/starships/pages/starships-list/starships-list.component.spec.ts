@@ -1,50 +1,58 @@
-import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DataService } from '../../services/data.service';
 import { HttpService } from '../../services/http.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { StarshipsListComponent } from './starships-list.component';
 
 describe('StarshipsListComponent', () => {
   let component: StarshipsListComponent;
   let fixture: ComponentFixture<StarshipsListComponent>;
-  let httpClient: jasmine.SpyObj<HttpClient>;
-  let httpService: HttpService;
-  let dataService: jasmine.SpyObj<DataService>
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ StarshipsListComponent ],
-      providers: [HttpService, DataService]
-    })
-    .compileComponents();
-  });
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [ StarshipsListComponent ],
+  //     providers: [HttpService, DataService]
+  //   })
+  //   .compileComponents();
+  // });
 
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [HttpService]
+    }).compileComponents()
+  })
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(StarshipsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    const httpService: HttpService = TestBed.inject(HttpService)
   });
+
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('Starship Array must be empty', () => {
-    // httpClient = jasmine.createSpyObj('HttpClient', ['get'])
-    // const thisComponent = new StarshipsListComponent( httpClient, dataService )
     const array = component.starshipArr;
-    expect(array.length).toEqual(0);
+    expect(array.length).toBe(0);
   })
 
-  it('Starhip Array must be initialized after onInit', () => {
+  it('Starhip Array must be initialized after onInit (1s delay)', () => {
     const array = component.starshipArr;
     component.ngOnInit()
-    expect(array.length).toBeGreaterThan(0);
-
+    setTimeout(() => {
+      expect(array.length).toBeGreaterThan(0);
+    }, 1000)
   })
 
-
+  it('Add items to Starship Array on scroll'), () => {
+    const array = component.starshipArr;
+    component.ngOnInit()
+    component.nextPage()
+    expect(array.length).toBeGreaterThan(10);
+  }
 
 });
- 

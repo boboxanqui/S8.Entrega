@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate, CanLoad {
         return true;
       }
     console.log('Bloqueado por AutGuard - CanLoad');
-    
+    this.sharedService.setshowLogIn(true);
     return false;
   }
 }

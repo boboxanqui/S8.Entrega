@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -13,7 +14,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     NavbarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
