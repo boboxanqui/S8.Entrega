@@ -16,6 +16,12 @@ export class SignupComponent implements OnInit  {
 
   ngOnInit(): void {
 
+    this.sharedService.showSignUp$.subscribe( resp => {
+      if( !resp ) {
+        this.signUpForm.reset();
+      }
+    })
+
   }
 
   emailPattern: string =  "^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{1,}$";

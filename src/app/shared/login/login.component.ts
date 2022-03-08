@@ -26,12 +26,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.submited = false;
+
+    this.sharedService.showLogIn$.subscribe( resp => {
+      if( !resp ){
+        this.logInForm.reset()
+        this.submited = false;
+      }
+    })
   }
 
   submited: boolean = false;
+  emailPattern: string =  "^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{1,}$";
 
   logInForm: FormGroup = this.fb.group({
-    user: ['', [ Validators.required] ],
+    email: ['', [ Validators.required, Validators.pattern(this.emailPattern)] ],
     password: ['', Validators.required]
   })
 
@@ -41,11 +49,14 @@ export class LoginComponent implements OnInit {
   }
 
   errorTextUser(): string{
-    if(this.logInForm.controls['user'].errors?.['required']){
+    if(this.logInForm.controls['email'].errors?.['required']){
       return 'Required'
     } 
-    if(this.logInForm.controls['user'].errors?.['invalid']){
-      return 'Username or Email Address invalid'
+    if(this.logInForm.controls['email'].errors?.['pattern']) {
+      return 'Please enter a valid email address.'
+    }
+    if(this.logInForm.controls['email'].errors?.['invalid']){
+      return `This email address doesn't exist`
     } 
     return ''
   }
@@ -63,8 +74,8 @@ export class LoginComponent implements OnInit {
   // Submit Form
 
   onSubmit(){
+    this.submited = true
     if(this.logInForm.invalid){
-      this.submited = true;
       return
     }
 
@@ -73,13 +84,12 @@ export class LoginComponent implements OnInit {
       password: false
     }
     if( localStorage.getItem('user') ){
-      const user = JSON.parse( localStorage.getItem('user')!)
+      const user = JSON.parse( localStorage.getItem('user')! )
 
-      if( user.userName == this.logInForm.controls['user'].value || 
-        user.email == this.logInForm.controls['user'].value ){
+      if( user.email == this.logInForm.controls['email'].value ){
           validation.user = true
         } else {
-          this.logInForm.controls['user'].setErrors({"invalid": "true"});
+          this.logInForm.controls['email'].setErrors({"invalid": "true"});
         }
       if( user.password == this.logInForm.controls['password'].value ){
         validation.password = true
@@ -92,6 +102,9 @@ export class LoginComponent implements OnInit {
         this.sharedService.setshowLogIn(false);
         this.logInForm.reset();
       }
+    } else{
+      this.logInForm.controls['email'].setErrors({"invalid": "true"});
+      this.logInForm.controls['password'].setErrors({"invalid": "true"});;
     }
   }
 

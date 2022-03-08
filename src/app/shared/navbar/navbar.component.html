@@ -51,16 +51,22 @@
 <p-dialog 
     [(visible)]="displaySignup"
     [modal]="true"
-    [closeOnEscape]="true"
-    [dismissableMask]="true"
+    [closable]="false"
     [breakpoints]="{'1200px':'50vw', '960px': '75vw', '640px': '100vw'}" 
     [style]="{width: '40vw'}">
 
     <ng-template pTemplate="header">
-        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">    
+        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">
+        <button pButton pRipple 
+            type="button" 
+            icon="pi pi-times" 
+            class="p-button-rounded p-button-text text-white absolute top-0 right-0 mt-3 mr-3"
+            (click)="closeSignup()">
+        </button>  
     </ng-template>
     
     <app-signup></app-signup>
+
 </p-dialog>
 
 <!-- Log In Modal -->
@@ -68,14 +74,25 @@
 <p-dialog 
     [(visible)]="displayLogIn"
     [modal]="true"
-    [closeOnEscape]="true"
-    [dismissableMask]="true"
+    [closable]="false"
     [breakpoints]="{'1200px':'50vw', '960px': '75vw', '640px': '100vw'}" 
     [style]="{width: '40vw'}">
 
     <ng-template pTemplate="header">
-        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">    
+        <img src="../assets/logo.png" alt="Logo Star Wars" id="logoModal">
+        <button pButton pRipple 
+            type="button" 
+            icon="pi pi-times" 
+            class="p-button-rounded p-button-text text-white absolute top-0 right-0 mt-3 mr-3"
+            (click)="closeLogIn()">
+        </button>
+        <!-- <button pButton 
+            class="absolute top-0 right-0 p-button-text p-button-rounded"
+            label=""> 
+            <i class="fa-solid fa-xmark"></i> 
+        </button>    -->
     </ng-template>
     
     <app-login></app-login>
+
 </p-dialog>

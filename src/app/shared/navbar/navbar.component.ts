@@ -12,12 +12,14 @@ export class NavbarComponent implements OnInit {
   constructor( private sharedService: SharedService ) { }
 
   ngOnInit(): void {
+
     this.sharedService.showSignUp$.subscribe( resp => {
       this.displaySignup = resp
     })
     this.sharedService.showLogIn$.subscribe( resp => {
       this.displayLogIn = resp
     })
+    
   }
 
 
@@ -32,8 +34,16 @@ export class NavbarComponent implements OnInit {
       this.sharedService.setShowSignUp(true);
   }
 
+  closeSignup() {
+    this.sharedService.setShowSignUp(false)
+  }
+
   showLogIn() {
     this.sharedService.setshowLogIn(true)
+  }
+
+  closeLogIn() {
+    this.sharedService.setshowLogIn(false)
   }
 
   logOut(){
